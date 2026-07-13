@@ -1,0 +1,47 @@
+import type { Metadata, Viewport } from "next";
+import { Cinzel, Inter } from "next/font/google";
+import "./globals.css";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import JsonLd from "@/components/seo/JsonLd";
+import { constructMetadata } from "@/lib/metadata";
+import BackToTop from "@/components/ui/BackToTop";
+
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+export const metadata: Metadata = constructMetadata({ path: "/" });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={`${cinzel.variable} ${inter.variable}`}>
+      <head>
+        <JsonLd />
+      </head>
+      <body className="antialiased bg-brand-cream text-brand-charcoal min-h-screen flex flex-col">
+        <SmoothScroll>
+          {children}
+          <BackToTop />
+        </SmoothScroll>
+      </body>
+    </html>
+  );
+}
