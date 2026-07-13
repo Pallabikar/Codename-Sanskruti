@@ -12,28 +12,43 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       return;
     }
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for premium inertial slide
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
-    });
+    let lenis: Lenis | null = null;
+    let rafId: number | null = null;
 
-    // Link Lenis to the requestAnimationFrame loop
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
+    const initLenis = () => {
+      lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing for premium inertial slide
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1.0,
+        touchMultiplier: 1.5,
+      });
+
+      function raf(time: number) {
+        if (lenis) {
+          lenis.raf(time);
+          rafId = requestAnimationFrame(raf);
+        }
+      }
       rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
+    };
+
+    // Defer initialization using requestIdleCallback with setTimeout fallback
+    const idleId = window.requestIdleCallback 
+      ? window.requestIdleCallback(() => initLenis()) 
+      : (setTimeout(initLenis, 200) as unknown as number);
 
     // Clean up on component unmount to prevent leaks
     return () => {
-      cancelAnimationFrame(rafId);
-      lenis.destroy();
+      if (window.cancelIdleCallback) {
+        window.cancelIdleCallback(idleId);
+      } else {
+        clearTimeout(idleId);
+      }
+      if (rafId) cancelAnimationFrame(rafId);
+      if (lenis) lenis.destroy();
     };
   }, []);
 

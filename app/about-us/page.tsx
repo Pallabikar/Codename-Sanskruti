@@ -33,21 +33,21 @@ export default function AboutUs() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="bg-white p-8 rounded-sm shadow-sm border border-brand-terracotta/5">
             <Users className="w-8 h-8 text-brand-orange mb-4" />
-            <h3 className="font-serif text-lg text-brand-charcoal mb-2">Our Vision</h3>
+            <h2 className="font-serif text-lg text-brand-charcoal mb-2">Our Vision</h2>
             <p className="text-xs text-gray-500 leading-relaxed">
               To be the gold standard in premium real estate, uniting the sacred architecture of Odisha with world-class engineering.
             </p>
           </div>
           <div className="bg-white p-8 rounded-sm shadow-sm border border-brand-terracotta/5">
             <Shield className="w-8 h-8 text-brand-orange mb-4" />
-            <h3 className="font-serif text-lg text-brand-charcoal mb-2">Our Values</h3>
+            <h2 className="font-serif text-lg text-brand-charcoal mb-2">Our Values</h2>
             <p className="text-xs text-gray-500 leading-relaxed">
               Uncompromising integrity, transparency, and deep respect for the cultural values of the land we build on.
             </p>
           </div>
           <div className="bg-white p-8 rounded-sm shadow-sm border border-brand-terracotta/5">
             <Trophy className="w-8 h-8 text-brand-orange mb-4" />
-            <h3 className="font-serif text-lg text-brand-charcoal mb-2">Our Track Record</h3>
+            <h2 className="font-serif text-lg text-brand-charcoal mb-2">Our Track Record</h2>
             <p className="text-xs text-gray-500 leading-relaxed">
               Successfully delivering landmarks in Bhubaneswar and Puri, bringing families closer in thoughtfully designed spaces.
             </p>

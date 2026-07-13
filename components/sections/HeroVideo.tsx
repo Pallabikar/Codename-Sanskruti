@@ -37,9 +37,24 @@ export default function HeroVideo() {
       handleLoadedMetadata();
     }
 
+    // Defer loading and playing video until after initial page load
+    const playVideo = () => {
+      video.preload = "auto";
+      video.play().catch((err) => {
+        console.log("Autoplay was prevented:", err);
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      playVideo();
+    } else {
+      window.addEventListener('load', playVideo);
+    }
+
     return () => {
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('timeupdate', handleTimeUpdate);
+      window.removeEventListener('load', playVideo);
     };
   }, []);
 
@@ -79,15 +94,17 @@ export default function HeroVideo() {
       ref={containerRef}
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-brand-charcoal text-white z-10"
     >
+      <link rel="preload" as="image" href="/images/hero-poster.webp" fetchPriority="high" />
+
       {/* Background Autoplay Video */}
       <video
         ref={videoRef}
-        autoPlay
         muted
         loop
         playsInline
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover -z-20 opacity-80"
-        poster="/images/og-preview.jpg"
+        poster="/images/hero-poster.webp"
       >
         <source src="/videos/hero.mp4#t=3.24" type="video/mp4" />
       </video>

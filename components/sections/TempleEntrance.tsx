@@ -57,7 +57,6 @@ export default function TempleEntrance() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
         />
       </div>
 

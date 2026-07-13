@@ -68,7 +68,6 @@ export default function PattachitraReception() {
           fill
           className="object-cover"
           sizes="100vw"
-          priority
         />
         
         {/* Dynamic Overlay Dimmer */}

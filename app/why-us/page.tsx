@@ -54,7 +54,7 @@ export default function WhyUs() {
             <div key={idx} className="flex gap-4 p-6 bg-white border border-brand-terracotta/5 rounded-sm">
               <CheckCircle2 className="w-5 h-5 text-brand-orange shrink-0 mt-1" />
               <div>
-                <h3 className="font-serif text-base text-brand-charcoal mb-2">{r.title}</h3>
+                <h2 className="font-serif text-base text-brand-charcoal mb-2">{r.title}</h2>
                 <p className="text-xs text-gray-500 leading-relaxed">{r.description}</p>
               </div>
             </div>
