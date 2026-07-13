@@ -30,7 +30,7 @@ export default function JsonLd() {
         "@id": "https://codenamesanskruti.com/#organization",
         "name": "Motwani Constructions",
         "url": "https://codenamesanskruti.com",
-        "logo": "https://codenamesanskruti.com/logo.jpg",
+        "logo": "https://codenamesanskruti.com/logo.png",
         "image": "https://codenamesanskruti.com/images/og-preview.jpg",
         "telephone": "+91-9999999999", // Placeholder phone
         "address": {

@@ -21,7 +21,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <div className="relative w-10 h-10 overflow-hidden bg-brand-orange/10 rounded-full flex items-center justify-center p-1 border border-brand-orange/20">
                 <Image 
-                  src="/logo.jpg" 
+                  src="/logo-icon.png" 
                   alt="Motwani Constructions Logo" 
                   width={32} 
                   height={32}
