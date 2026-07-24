@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { Menu, X, Phone, Calendar } from 'lucide-react';
+import BookSiteVisitModal from '@/components/ui/BookSiteVisitModal';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
@@ -19,6 +20,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -111,12 +113,13 @@ export default function Navbar() {
               <span>Call Us Now</span>
             </Link>
 
-            <Link 
-              href="#contact"
-              className="hidden sm:inline-block border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300"
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="hidden sm:flex items-center gap-1.5 border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300 cursor-pointer"
             >
-              Get In Touch
-            </Link>
+              <Calendar className="w-3.5 h-3.5" />
+              <span>Book Site Visit</span>
+            </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -174,24 +177,30 @@ export default function Navbar() {
               transition={{ delay: NAV_LINKS.length * 0.08, duration: 0.5 }}
               className="mt-12 flex flex-col gap-4 w-full max-w-sm"
             >
+              <button 
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsModalOpen(true);
+                }}
+                className="flex items-center justify-center gap-3 bg-brand-orange text-white py-4 rounded-sm text-sm font-bold tracking-widest uppercase shadow-lg shadow-brand-orange/20 hover:bg-brand-terracotta transition-colors"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book Free Site Visit</span>
+              </button>
+              
               <Link 
                 href="tel:+919999999999"
-                className="flex items-center justify-center gap-3 bg-brand-orange text-white py-4 rounded-sm text-sm font-bold tracking-widest uppercase shadow-lg shadow-brand-orange/20 hover:bg-brand-terracotta transition-colors"
+                className="flex items-center justify-center gap-2 border border-brand-charcoal py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-brand-charcoal hover:text-brand-cream transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
                 <span>Call Us Now</span>
-              </Link>
-              
-              <Link 
-                href="#contact"
-                className="flex items-center justify-center border border-brand-charcoal py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-brand-charcoal hover:text-brand-cream transition-all duration-300"
-              >
-                Get In Touch
               </Link>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <BookSiteVisitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 }

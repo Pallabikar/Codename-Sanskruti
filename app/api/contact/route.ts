@@ -3,12 +3,15 @@ import fs from 'fs/promises';
 import path from 'path';
 import { z } from 'zod';
 
-// Zod validation schema for leads
+// Zod validation schema for site visit and enquiry leads
 const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
-  phone: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian phone number'),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(5, 'Message must be at least 5 characters'),
+  phone: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian phone number (starting with 6-9)'),
+  email: z.string().email('Please enter a valid email address').or(z.literal('')).optional(),
+  configuration: z.string().optional(),
+  timeline: z.string().optional(),
+  agreeWhatsapp: z.boolean().optional(),
+  message: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -30,7 +33,7 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
     };
 
-    // Save lead to local JSON file (simulating MERN lead collection)
+    // Save lead to local JSON file (simulating backend lead collection)
     const dirPath = path.join(process.cwd(), 'data');
     const filePath = path.join(dirPath, 'leads.json');
 
@@ -50,7 +53,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Enquiry submitted successfully. Our relationship manager will reach out shortly.',
+      message: 'Site visit request registered successfully. Our relationship manager will contact you shortly.',
       leadId: leadData.id,
     }, { status: 201 });
 
