@@ -55,7 +55,7 @@ export default function BackgroundMusicPlayer() {
 
   return (
     <>
-      {/* Non-blocking Audio Element (preload metadata for instant website loading) */}
+      {/* Non-blocking Audio Element (preload metadata for instant page loading) */}
       <audio
         ref={audioRef}
         src="/Codename-Cascade-Music.mp3"
@@ -63,33 +63,25 @@ export default function BackgroundMusicPlayer() {
         preload="metadata"
       />
 
-      {/* Music Control Toggle Button */}
-      <button
-        onClick={toggleMusic}
-        className={`relative flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer select-none backdrop-blur-md ${
-          isPlaying
-            ? 'bg-brand-orange/90 text-white border-brand-orange/40 shadow-lg shadow-brand-orange/20'
-            : 'bg-black/40 text-white/80 border-white/20 hover:bg-black/60 hover:text-white'
-        }`}
-        aria-label={isPlaying ? 'Mute Background Music' : 'Play Background Music'}
-        title={isPlaying ? 'Mute Background Music' : 'Play Background Music'}
-      >
-        {isPlaying ? (
-          <>
-            <span className="relative flex h-2 w-2 shrink-0">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-200 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-            </span>
-            <Volume2 className="w-4 h-4 text-white animate-pulse shrink-0" />
-            <span className="font-sans text-[11px]">Music ON</span>
-          </>
-        ) : (
-          <>
+      {/* Floating Music Control Icon Only (Right Side, Positioned Above Back to Top) */}
+      <div className="fixed bottom-34 right-6.5 z-40">
+        <button
+          onClick={toggleMusic}
+          className={`group relative flex items-center justify-center w-11 h-11 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border cursor-pointer ${
+            isPlaying
+              ? 'bg-brand-orange text-white border-white/20 shadow-brand-orange/40'
+              : 'bg-brand-charcoal/90 text-white/70 border-white/20 hover:text-white hover:bg-brand-charcoal'
+          }`}
+          aria-label={isPlaying ? 'Mute Background Music' : 'Play Background Music'}
+          title={isPlaying ? 'Music ON (Click to Mute)' : 'Music OFF (Click to Play)'}
+        >
+          {isPlaying ? (
+            <Volume2 className="w-5 h-5 text-white animate-pulse shrink-0" />
+          ) : (
             <VolumeX className="w-4 h-4 text-white/70 shrink-0" />
-            <span className="font-sans text-[11px] text-white/80">Music OFF</span>
-          </>
-        )}
-      </button>
+          )}
+        </button>
+      </div>
     </>
   );
 }

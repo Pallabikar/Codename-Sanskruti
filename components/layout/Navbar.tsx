@@ -117,8 +117,7 @@ export default function Navbar() {
           </nav>
 
           {/* Action Button & Mobile Trigger */}
-          <div className="flex items-center gap-3">
-            <BackgroundMusicPlayer />
+          <div className="flex items-center gap-4">
             <Link 
               href="tel:+919437170733"
               className="hidden lg:flex items-center gap-2 relative overflow-hidden group bg-gradient-to-r from-brand-orange to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white px-5 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-transform duration-300 active:scale-95 shadow-lg shadow-brand-orange/20"
