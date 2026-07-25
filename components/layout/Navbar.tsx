@@ -118,7 +118,7 @@ export default function Navbar() {
           {/* Action Button & Mobile Trigger */}
           <div className="flex items-center gap-4">
             <Link 
-              href="tel:+919999999999"
+              href="tel:+919437170733"
               className="hidden lg:flex items-center gap-2 relative overflow-hidden group bg-gradient-to-r from-brand-orange to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white px-5 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-transform duration-300 active:scale-95 shadow-lg shadow-brand-orange/20"
             >
               {/* Shimmer Effect */}
@@ -211,7 +211,7 @@ export default function Navbar() {
               </button>
               
               <Link 
-                href="tel:+919999999999"
+                href="tel:+919437170733"
                 className="flex items-center justify-center gap-2 border border-brand-charcoal py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-brand-charcoal hover:text-brand-cream transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />

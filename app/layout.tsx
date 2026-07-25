@@ -6,6 +6,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { constructMetadata } from "@/lib/metadata";
 import BackToTop from "@/components/ui/BackToTop";
 import FloatingSiteVisitButton from "@/components/ui/FloatingSiteVisitButton";
+import FloatingWhatsAppButton from "@/components/ui/FloatingWhatsAppButton";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
@@ -41,6 +42,7 @@ export default function RootLayout({
         <SmoothScroll>
           {children}
           <FloatingSiteVisitButton />
+          <FloatingWhatsAppButton />
           <BackToTop />
         </SmoothScroll>
       </body>

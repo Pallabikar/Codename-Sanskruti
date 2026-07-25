@@ -58,8 +58,8 @@ export default function CTAContactForm() {
               <div>
                 <h4 className="font-serif text-sm text-brand-charcoal font-semibold mb-1">Sales Hotline</h4>
                 <p className="leading-relaxed">
-                  <a href="tel:+919999999999" className="hover:text-brand-orange transition-colors">
-                    +91 99999 99999
+                  <a href="tel:+919437170733" className="hover:text-brand-orange transition-colors font-medium">
+                    +91 94371 70733
                   </a>
                 </p>
               </div>
