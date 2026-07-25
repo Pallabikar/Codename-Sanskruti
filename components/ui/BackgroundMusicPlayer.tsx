@@ -64,13 +64,13 @@ export default function BackgroundMusicPlayer() {
       />
 
       {/* Floating Music Control Icon Only (Right Side, Positioned Above Back to Top) */}
-      <div className="fixed bottom-34 right-6.5 z-40">
+      <div className="fixed bottom-34 right-6 z-40">
         <button
           onClick={toggleMusic}
-          className={`group relative flex items-center justify-center w-11 h-11 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border cursor-pointer ${
+          className={`group relative flex items-center justify-center w-12 h-12 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/20 cursor-pointer ${
             isPlaying
-              ? 'bg-brand-orange text-white border-white/20 shadow-brand-orange/40'
-              : 'bg-brand-charcoal/90 text-white/70 border-white/20 hover:text-white hover:bg-brand-charcoal'
+              ? 'bg-brand-orange hover:bg-brand-terracotta text-white shadow-brand-orange/40'
+              : 'bg-brand-charcoal/90 text-white/80 hover:bg-brand-charcoal hover:text-white'
           }`}
           aria-label={isPlaying ? 'Mute Background Music' : 'Play Background Music'}
           title={isPlaying ? 'Music ON (Click to Mute)' : 'Music OFF (Click to Play)'}
@@ -78,7 +78,7 @@ export default function BackgroundMusicPlayer() {
           {isPlaying ? (
             <Volume2 className="w-5 h-5 text-white animate-pulse shrink-0" />
           ) : (
-            <VolumeX className="w-4 h-4 text-white/70 shrink-0" />
+            <VolumeX className="w-5 h-5 text-white/80 shrink-0" />
           )}
         </button>
       </div>
