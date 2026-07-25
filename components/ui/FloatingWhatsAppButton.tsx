@@ -6,12 +6,12 @@ export default function FloatingWhatsAppButton() {
   const whatsappUrl = "https://wa.me/919437170733?text=Hello!%20I%20am%20interested%20in%20Codename%20Sanskruti.%20Please%20share%20more%20details.";
 
   return (
-    <div className="fixed bottom-22 right-6 z-40">
+    <div className="fixed bottom-6 right-6 z-40">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative flex items-center justify-center w-12 h-12 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/50 transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/20 cursor-pointer"
+        className="group relative flex items-center justify-center w-13 h-13 bg-[#25D366] hover:bg-[#1EBE57] text-white rounded-full shadow-2xl hover:shadow-[#25D366]/50 transition-all duration-300 transform hover:scale-110 active:scale-95 border border-white/20 cursor-pointer"
         aria-label="Chat on WhatsApp"
         title="Chat on WhatsApp (+91 94371 70733)"
       >

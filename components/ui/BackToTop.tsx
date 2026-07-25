@@ -37,7 +37,7 @@ export default function BackToTop() {
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           onClick={scrollToTop}
-          className="fixed bottom-36 right-6 z-50 p-3.5 rounded-full bg-brand-orange hover:bg-brand-orange-light text-white shadow-lg shadow-brand-orange/30 transition-colors duration-300 border border-brand-orange/10 group focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-charcoal cursor-pointer"
+          className="fixed bottom-22 right-6.5 z-50 p-3 rounded-full bg-brand-orange hover:bg-brand-orange-light text-white shadow-lg shadow-brand-orange/30 transition-colors duration-300 border border-brand-orange/10 group focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-charcoal cursor-pointer"
           aria-label="Back to top"
         >
           <ChevronUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300" />
