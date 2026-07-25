@@ -1,0 +1,65 @@
+[
+  {
+    "name": "Test User",
+    "phone": "9876543210",
+    "email": "test@example.com",
+    "agreeWhatsapp": true,
+    "id": "lead_1784954807145",
+    "timestamp": "2026-07-25T04:46:47.145Z",
+    "brochureDelivered": true,
+    "emailSentMode": "simulated",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919876543210&text=Hello%20Test%20User%2C%20thank%20you%20for%20your%20enquiry%20for%20Codename%20Sanskruti!%20Here%20is%20your%20official%20e-brochure%20link%3A%20http%3A%2F%2Flocalhost%3A3000%2FCodename-Cascade-Mini-Brochure.pdf"
+  },
+  {
+    "name": "Pallabi kar",
+    "phone": "7205086279",
+    "email": "kpallabi918@gmail.com",
+    "configuration": "3 BHK",
+    "timeline": "This Week",
+    "agreeWhatsapp": true,
+    "id": "lead_1784955357451",
+    "timestamp": "2026-07-25T04:55:57.451Z",
+    "brochureDelivered": true,
+    "emailSentMode": "simulated",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=917205086279&text=Hello%20Pallabi%20kar%2C%20thank%20you%20for%20your%20enquiry%20for%20Codename%20Sanskruti!%20Here%20is%20your%20official%20e-brochure%20link%3A%20http%3A%2F%2Flocalhost%3A3000%2FCodename-Cascade-Mini-Brochure.pdf"
+  },
+  {
+    "name": "Pallabi kar",
+    "phone": "7205086279",
+    "email": "kpallabi918@gmail.com",
+    "configuration": "3 BHK",
+    "timeline": "This Month",
+    "agreeWhatsapp": true,
+    "id": "lead_1784955388537",
+    "timestamp": "2026-07-25T04:56:28.537Z",
+    "brochureDelivered": true,
+    "emailSentMode": "simulated",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=917205086279&text=Hello%20Pallabi%20kar%2C%20thank%20you%20for%20your%20enquiry%20for%20Codename%20Sanskruti!%20Here%20is%20your%20official%20e-brochure%20link%3A%20http%3A%2F%2Flocalhost%3A3000%2FCodename-Cascade-Mini-Brochure.pdf"
+  },
+  {
+    "name": "PDF Test User",
+    "phone": "9876543210",
+    "email": "pdftest@example.com",
+    "agreeWhatsapp": true,
+    "id": "lead_1784955519324",
+    "timestamp": "2026-07-25T04:58:39.324Z",
+    "brochureDelivered": true,
+    "emailSentMode": "simulated",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=919876543210&text=Hello%20PDF%20Test%20User%2C%20thank%20you%20for%20your%20enquiry%20for%20Codename%20Sanskruti!%20Direct%20PDF%20Brochure%20Download%3A%20http%3A%2F%2Flocalhost%3A3000%2FCodename-Cascade-Mini-Brochure.pdf",
+    "directPdfUrl": "http://localhost:3000/Codename-Cascade-Mini-Brochure.pdf"
+  },
+  {
+    "name": "Pallabi kar",
+    "phone": "7205086279",
+    "email": "kpallabi918@gmail.com",
+    "configuration": "2 BHK",
+    "timeline": "This Week",
+    "agreeWhatsapp": true,
+    "id": "lead_1784955563442",
+    "timestamp": "2026-07-25T04:59:23.442Z",
+    "brochureDelivered": true,
+    "emailSentMode": "simulated",
+    "whatsappUrl": "https://api.whatsapp.com/send?phone=917205086279&text=Hello%20Pallabi%20kar%2C%20thank%20you%20for%20your%20enquiry%20for%20Codename%20Sanskruti!%20Direct%20PDF%20Brochure%20Download%3A%20http%3A%2F%2Flocalhost%3A3000%2FCodename-Cascade-Mini-Brochure.pdf",
+    "directPdfUrl": "http://localhost:3000/Codename-Cascade-Mini-Brochure.pdf"
+  }
+]

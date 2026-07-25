@@ -4,12 +4,12 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { User, Phone, Mail, ChevronDown, Star, Loader2, CheckCircle2, Sparkles } from 'lucide-react';
+import { User, Phone, Mail, ChevronDown, Star, Loader2, CheckCircle2, Sparkles, Download, MessageSquareShare } from 'lucide-react';
 
 const siteVisitSchema = z.object({
   name: z.string().min(2, 'Full Name is required (at least 2 characters)'),
   phone: z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit mobile number'),
-  email: z.string().email('Enter a valid email address').or(z.literal('')).optional(),
+  email: z.string().min(1, 'Email address is required for brochure delivery').email('Enter a valid email address'),
   configuration: z.string().optional(),
   timeline: z.string().optional(),
   agreeWhatsapp: z.boolean(),
@@ -31,6 +31,12 @@ export default function BookSiteVisitForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [submitSuccess, setSubmitSuccess] = useState<boolean>(false);
+  const [deliveryDetails, setDeliveryDetails] = useState<{
+    email: string;
+    phone: string;
+    whatsappUrl?: string;
+    brochureUrl?: string;
+  } | null>(null);
 
   const {
     register,
@@ -49,6 +55,22 @@ export default function BookSiteVisitForm({
     },
   });
 
+  const triggerDownload = (url: string) => {
+    const pdfUrl = url.startsWith('http') ? url : `${window.location.origin}${url.startsWith('/') ? '' : '/'}${url}`;
+    const a = document.createElement('a');
+    a.href = pdfUrl;
+    a.download = 'Codename-Cascade-Mini-Brochure.pdf';
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      if (document.body.contains(a)) {
+        document.body.removeChild(a);
+      }
+    }, 100);
+  };
+
   const onSubmit = async (data: SiteVisitFormData) => {
     setIsSubmitting(true);
     setSubmitError(null);
@@ -63,6 +85,23 @@ export default function BookSiteVisitForm({
       const result = await response.json();
 
       if (response.ok) {
+        setDeliveryDetails({
+          email: data.email,
+          phone: data.phone,
+          whatsappUrl: result.whatsappUrl,
+          brochureUrl: result.brochureUrl || '/Codename-Cascade-Mini-Brochure.pdf',
+        });
+
+        // 1. Trigger direct browser download of brochure
+        triggerDownload(result.brochureUrl || '/Codename-Cascade-Mini-Brochure.pdf');
+
+        // 2. Trigger WhatsApp redirect window
+        if (result.whatsappUrl && data.agreeWhatsapp) {
+          setTimeout(() => {
+            window.open(result.whatsappUrl, '_blank');
+          }, 800);
+        }
+
         setSubmitSuccess(true);
         reset();
         if (onSuccessCallback) {
@@ -92,27 +131,77 @@ export default function BookSiteVisitForm({
           </div>
 
           <p className="font-sans text-xs md:text-sm text-gray-600 leading-relaxed font-medium mt-1">
-            Get the latest price, floor plans &<br />
-            exclusive launch offers.
+            Get instant brochure delivery on Email & WhatsApp,<br />
+            plus latest price & floor plans.
           </p>
         </div>
 
         {submitSuccess ? (
-          <div className="text-center py-8 px-4 flex flex-col items-center">
-            <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mb-4 border border-emerald-200">
+          <div className="text-center py-6 px-3 flex flex-col items-center">
+            <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mb-3 border border-emerald-200 shadow-sm">
               <CheckCircle2 className="w-8 h-8 text-emerald-600 animate-bounce" />
             </div>
-            <h3 className="font-serif text-xl text-brand-charcoal mb-2 uppercase tracking-wide">
-              Site Visit Booked!
+
+            <h3 className="font-serif text-xl text-brand-charcoal mb-1 uppercase tracking-wide">
+              Brochure Dispatched!
             </h3>
-            <p className="text-xs text-gray-600 max-w-sm mx-auto leading-relaxed mb-6">
-              Thank you! Our relationship manager will reach out shortly to confirm your visit, price list, and floor plans.
+
+            <p className="text-xs text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-full font-medium mb-4">
+              ✨ Sent to WhatsApp & Registered Email
             </p>
+
+            {/* Delivery Details Summary Card */}
+            {deliveryDetails && (
+              <div className="w-full bg-brand-cream/40 border border-brand-terracotta/15 rounded-md p-3.5 mb-5 text-left space-y-2 text-xs">
+                <div className="flex items-center justify-between text-gray-700">
+                  <span className="flex items-center gap-1.5 font-semibold">
+                    <Mail className="w-3.5 h-3.5 text-brand-orange shrink-0" /> Email Sent:
+                  </span>
+                  <span className="font-mono text-[11px] text-brand-charcoal truncate max-w-[180px]">
+                    {deliveryDetails.email}
+                  </span>
+                </div>
+
+                <div className="flex items-center justify-between text-gray-700 border-t border-gray-200/60 pt-2">
+                  <span className="flex items-center gap-1.5 font-semibold">
+                    <MessageSquareShare className="w-3.5 h-3.5 text-emerald-600 shrink-0" /> WhatsApp Dispatched:
+                  </span>
+                  <span className="font-mono text-[11px] text-brand-charcoal">
+                    +91 {deliveryDetails.phone}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Direct Actions */}
+            <div className="w-full space-y-2.5 mb-5">
+              <button
+                type="button"
+                onClick={() => triggerDownload(deliveryDetails?.brochureUrl || '/Codename-Cascade-Mini-Brochure.pdf')}
+                className="w-full bg-brand-orange hover:bg-brand-terracotta text-white font-bold text-xs py-3 px-4 rounded-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-md cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Download Brochure PDF</span>
+              </button>
+
+              {deliveryDetails?.whatsappUrl && (
+                <a
+                  href={deliveryDetails.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2.5 px-4 rounded-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2 shadow-sm block text-center cursor-pointer"
+                >
+                  <MessageSquareShare className="w-4 h-4" />
+                  <span>Open in WhatsApp</span>
+                </a>
+              )}
+            </div>
+
             <button
               onClick={() => setSubmitSuccess(false)}
-              className="text-xs font-bold tracking-widest text-brand-orange hover:text-brand-terracotta uppercase transition-colors underline underline-offset-4"
+              className="text-xs font-bold tracking-widest text-brand-orange hover:text-brand-terracotta uppercase transition-colors underline underline-offset-4 cursor-pointer"
             >
-              Book Another Visit
+              Book Another Visit / Submit Form Again
             </button>
           </div>
         ) : (
@@ -151,7 +240,7 @@ export default function BookSiteVisitForm({
             {/* Mobile Number * */}
             <div className="flex flex-col">
               <label className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-charcoal mb-1.5">
-                Mobile Number <span className="text-brand-orange">*</span>
+                Mobile Number (for WhatsApp Delivery) <span className="text-brand-orange">*</span>
               </label>
               <div className="relative">
                 <input
@@ -173,10 +262,10 @@ export default function BookSiteVisitForm({
               )}
             </div>
 
-            {/* Email Address */}
+            {/* Email Address * */}
             <div className="flex flex-col">
               <label className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-charcoal mb-1.5">
-                Email Address
+                Email Address (for Email Delivery) <span className="text-brand-orange">*</span>
               </label>
               <div className="relative">
                 <input
@@ -248,7 +337,7 @@ export default function BookSiteVisitForm({
                   className="mt-0.5 h-4 w-4 rounded border-gray-300 text-brand-orange focus:ring-brand-orange accent-brand-orange cursor-pointer"
                 />
                 <span className="text-[11px] text-gray-600 leading-tight group-hover:text-brand-charcoal transition-colors">
-                  I agree to receive calls and WhatsApp updates.
+                  Send e-brochure to my WhatsApp & Email.
                 </span>
               </label>
             </div>
@@ -257,7 +346,7 @@ export default function BookSiteVisitForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full relative overflow-hidden group bg-gradient-to-r from-brand-orange via-brand-orange-light to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white py-3.5 px-6 rounded-sm text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-orange/20 active:scale-[0.98] disabled:opacity-50 mt-2 flex items-center justify-center gap-2"
+              className="w-full relative overflow-hidden group bg-gradient-to-r from-brand-orange via-brand-orange-light to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white py-3.5 px-6 rounded-sm text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-lg shadow-brand-orange/20 active:scale-[0.98] disabled:opacity-50 mt-2 flex items-center justify-center gap-2 cursor-pointer"
             >
               {/* Shimmer Effect */}
               <div 
@@ -270,7 +359,7 @@ export default function BookSiteVisitForm({
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Processing...</span>
+                  <span>Delivering Brochure...</span>
                 </>
               ) : (
                 <>
