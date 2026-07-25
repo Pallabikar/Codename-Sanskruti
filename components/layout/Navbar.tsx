@@ -41,6 +41,18 @@ export default function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  // Auto-open lead capture popup 1.5 seconds after website load
+  useEffect(() => {
+    const hasSeenPopup = sessionStorage.getItem('hasSeenAutoSiteVisitPopup');
+    if (!hasSeenPopup) {
+      const timer = setTimeout(() => {
+        setIsModalOpen(true);
+        sessionStorage.setItem('hasSeenAutoSiteVisitPopup', 'true');
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
     <>
       <header

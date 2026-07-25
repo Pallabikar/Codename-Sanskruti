@@ -21,30 +21,30 @@ export default function BookSiteVisitModal({ isOpen, onClose }: BookSiteVisitMod
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm"
           />
 
           {/* Modal Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.92, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            exit={{ opacity: 0, scale: 0.92, y: 30 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             className="relative w-full max-w-lg z-10 my-auto"
           >
-            {/* Close Button */}
+            {/* High-Visibility Cross / Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-gray-700 flex items-center justify-center shadow-md transition-colors"
+              className="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-brand-charcoal text-white hover:bg-brand-orange shadow-xl flex items-center justify-center transition-all duration-300 border border-white/20 cursor-pointer group hover:scale-110"
               aria-label="Close modal"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" />
             </button>
 
             <BookSiteVisitForm isCompact={true} onSuccessCallback={() => {
               setTimeout(() => {
                 onClose();
-              }, 3000);
+              }, 4000);
             }} />
           </motion.div>
         </div>
