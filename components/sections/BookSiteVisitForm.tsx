@@ -7,8 +7,13 @@ import { z } from 'zod';
 import { User, Phone, Mail, ChevronDown, Star, Loader2, CheckCircle2, Sparkles, Download, MessageSquareShare } from 'lucide-react';
 
 const siteVisitSchema = z.object({
-  name: z.string().min(2, 'Full Name is required (at least 2 characters)'),
-  phone: z.string().regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit mobile number'),
+  name: z
+    .string()
+    .min(2, 'Full Name is required (at least 2 characters)')
+    .regex(/^[a-zA-Z\s.]+$/, 'Full Name can only contain letters and spaces'),
+  phone: z
+    .string()
+    .regex(/^[6-9]\d{9}$/, 'Enter a valid 10-digit Indian mobile number (starting with 6-9)'),
   email: z.string().min(1, 'Email address is required for brochure delivery').email('Enter a valid email address'),
   configuration: z.string().optional(),
   timeline: z.string().optional(),
@@ -212,15 +217,20 @@ export default function BookSiteVisitForm({
               </div>
             )}
 
-            {/* Full Name * */}
+            {/* Full Name * (Strictly Letters Only) */}
             <div className="flex flex-col">
               <label className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-charcoal mb-1.5 flex items-center justify-between">
-                <span>Full Name <span className="text-brand-orange">*</span></span>
+                <span>Full Name (Letters Only) <span className="text-brand-orange">*</span></span>
               </label>
               <div className="relative">
                 <input
                   type="text"
-                  {...register('name')}
+                  {...register('name', {
+                    onChange: (e) => {
+                      // Restrict input to letters, spaces, and dots only
+                      e.target.value = e.target.value.replace(/[^a-zA-Z\s.]/g, '');
+                    },
+                  })}
                   placeholder="Enter your full name"
                   className={`w-full text-xs pl-10 pr-4 py-3 rounded-sm border bg-brand-cream/30 focus:outline-none focus:ring-1 focus:bg-white transition-all text-brand-charcoal placeholder:text-gray-400 ${
                     errors.name
@@ -237,15 +247,21 @@ export default function BookSiteVisitForm({
               )}
             </div>
 
-            {/* Mobile Number * */}
+            {/* Mobile Number * (Strictly 10 Digits Only) */}
             <div className="flex flex-col">
               <label className="text-[11px] font-sans font-bold uppercase tracking-wider text-brand-charcoal mb-1.5">
-                Mobile Number (for WhatsApp Delivery) <span className="text-brand-orange">*</span>
+                Mobile Number (Numbers Only) <span className="text-brand-orange">*</span>
               </label>
               <div className="relative">
                 <input
                   type="tel"
-                  {...register('phone')}
+                  maxLength={10}
+                  {...register('phone', {
+                    onChange: (e) => {
+                      // Restrict input to digits 0-9 only and max 10 digits
+                      e.target.value = e.target.value.replace(/[^0-9]/g, '').slice(0, 10);
+                    },
+                  })}
                   placeholder="Enter 10-digit mobile number"
                   className={`w-full text-xs pl-10 pr-4 py-3 rounded-sm border bg-brand-cream/30 focus:outline-none focus:ring-1 focus:bg-white transition-all text-brand-charcoal placeholder:text-gray-400 ${
                     errors.phone

@@ -6,7 +6,10 @@ import nodemailer from 'nodemailer';
 
 // Zod validation schema for site visit and enquiry leads
 const leadSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  name: z
+    .string()
+    .min(2, 'Name must be at least 2 characters')
+    .regex(/^[a-zA-Z\s.]+$/, 'Full Name can only contain letters and spaces'),
   phone: z.string().regex(/^[6-9]\d{9}$/, 'Please enter a valid 10-digit Indian phone number (starting with 6-9)'),
   email: z.string().email('Please enter a valid email address'),
   configuration: z.string().optional(),
