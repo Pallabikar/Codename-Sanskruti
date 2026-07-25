@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Calendar } from 'lucide-react';
 import BookSiteVisitModal from '@/components/ui/BookSiteVisitModal';
+import BackgroundMusicPlayer from '@/components/ui/BackgroundMusicPlayer';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/' },
@@ -116,7 +117,8 @@ export default function Navbar() {
           </nav>
 
           {/* Action Button & Mobile Trigger */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <BackgroundMusicPlayer />
             <Link 
               href="tel:+919437170733"
               className="hidden lg:flex items-center gap-2 relative overflow-hidden group bg-gradient-to-r from-brand-orange to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white px-5 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-transform duration-300 active:scale-95 shadow-lg shadow-brand-orange/20"
