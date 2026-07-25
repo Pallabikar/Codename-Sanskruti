@@ -116,22 +116,27 @@ export async function POST(request: Request) {
       directPdfUrl,
     };
 
-    // Save lead to local JSON file
-    const dirPath = path.join(process.cwd(), 'data');
-    const filePath = path.join(dirPath, 'leads.json');
-
-    await fs.mkdir(dirPath, { recursive: true });
-
-    let leads = [];
+    // Safely attempt local JSON file storage (with fallback for Vercel/Serverless read-only filesystems)
     try {
-      const fileData = await fs.readFile(filePath, 'utf-8');
-      leads = JSON.parse(fileData);
-    } catch {
-      // File does not exist yet
-    }
+      const isVercel = process.env.VERCEL || process.env.NODE_ENV === 'production';
+      const dirPath = isVercel ? path.join('/tmp', 'data') : path.join(process.cwd(), 'data');
+      const filePath = path.join(dirPath, 'leads.json');
 
-    leads.push(leadData);
-    await fs.writeFile(filePath, JSON.stringify(leads, null, 2), 'utf-8');
+      await fs.mkdir(dirPath, { recursive: true });
+
+      let leads = [];
+      try {
+        const fileData = await fs.readFile(filePath, 'utf-8');
+        leads = JSON.parse(fileData);
+      } catch {
+        // File does not exist yet
+      }
+
+      leads.push(leadData);
+      await fs.writeFile(filePath, JSON.stringify(leads, null, 2), 'utf-8');
+    } catch (fsErr) {
+      console.warn('Lead file saving skipped in serverless/read-only environment:', fsErr);
+    }
 
     return NextResponse.json({
       success: true,
