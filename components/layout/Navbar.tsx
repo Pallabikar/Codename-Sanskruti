@@ -47,13 +47,13 @@ export default function Navbar() {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           isScrolled 
             ? 'glassmorphism py-3 shadow-md' 
-            : 'bg-transparent py-5'
+            : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo & Brand Name */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-hidden bg-brand-orange/10 rounded-full flex items-center justify-center p-1 border border-brand-orange/20">
+            <div className="relative w-10 h-10 overflow-hidden bg-brand-orange/20 rounded-full flex items-center justify-center p-1 border border-brand-orange/40 shadow-sm">
               <Image 
                 src="/logo-icon.png" 
                 alt="Motwani Constructions Logo" 
@@ -63,10 +63,12 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-sm tracking-widest text-brand-orange font-bold uppercase leading-none">
+              <span className="font-serif text-sm tracking-widest text-brand-orange font-bold uppercase leading-none drop-shadow-sm">
                 Motwani
               </span>
-              <span className="font-sans text-[10px] tracking-[0.25em] text-brand-terracotta uppercase font-semibold">
+              <span className={`font-sans text-[10px] tracking-[0.25em] uppercase font-semibold transition-colors duration-300 ${
+                isScrolled ? 'text-brand-terracotta' : 'text-amber-100/90'
+              }`}>
                 Constructions
               </span>
             </div>
@@ -80,10 +82,12 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative text-xs tracking-widest font-semibold uppercase transition-colors duration-300 py-2 ${
+                  className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
                     isActive 
                       ? 'text-brand-orange' 
-                      : 'text-brand-charcoal hover:text-brand-orange'
+                      : isScrolled
+                        ? 'text-brand-charcoal hover:text-brand-orange'
+                        : 'text-white hover:text-brand-orange'
                   }`}
                 >
                   {link.label}
@@ -103,7 +107,7 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <Link 
               href="tel:+919999999999"
-              className="hidden lg:flex items-center gap-2 relative overflow-hidden group bg-gradient-to-r from-brand-orange to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white px-5 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-transform duration-300 active:scale-95 shadow-lg shadow-brand-orange/10"
+              className="hidden lg:flex items-center gap-2 relative overflow-hidden group bg-gradient-to-r from-brand-orange to-brand-terracotta hover:from-brand-terracotta hover:to-brand-orange text-white px-5 py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-transform duration-300 active:scale-95 shadow-lg shadow-brand-orange/20"
             >
               {/* Shimmer Effect */}
               <div className="absolute inset-0 w-1/2 h-full bg-white/25 transform -skew-x-12 -translate-x-full group-hover:animate-shimmer" 
@@ -115,7 +119,11 @@ export default function Navbar() {
 
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="hidden sm:flex items-center gap-1.5 border border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300 cursor-pointer"
+              className={`hidden sm:flex items-center gap-1.5 border px-4 py-2 rounded-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300 cursor-pointer ${
+                isScrolled 
+                  ? 'border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white'
+                  : 'border-white/80 text-white hover:bg-white hover:text-brand-charcoal bg-black/20 backdrop-blur-xs'
+              }`}
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>Book Site Visit</span>
@@ -123,7 +131,9 @@ export default function Navbar() {
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-brand-charcoal hover:text-brand-orange transition-colors"
+              className={`md:hidden p-2 transition-colors ${
+                isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

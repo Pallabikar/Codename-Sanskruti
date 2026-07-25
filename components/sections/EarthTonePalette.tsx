@@ -51,12 +51,12 @@ export default function EarthTonePalette() {
           </h2>
           <div className="w-12 h-[2px] bg-brand-orange mx-auto md:mx-0 mb-4" />
           <p className="font-sans text-xs md:text-sm text-gray-400 leading-relaxed font-light">
-            Inspired by the colors of Odisha's earth, temples, and craftsmanship. Move your cursor over the swatches to see the materials.
+            Inspired by the colors of Odisha's earth, temples, and craftsmanship. Explore the natural materials and heritage color palette.
           </p>
         </div>
 
         {/* Dynamic Expanding Swatches Grid */}
-        <div className="flex flex-col lg:flex-row gap-4 h-[600px] lg:h-[400px]">
+        <div className="flex flex-col lg:flex-row gap-4 h-[600px] lg:h-[420px]">
           {SWATCHES.map((swatch, idx) => {
             const isHovered = hoveredIdx === idx;
             const isAnyHovered = hoveredIdx !== null;
@@ -72,36 +72,38 @@ export default function EarthTonePalette() {
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{ flex: flexWidth }}
-                className="relative rounded-sm overflow-hidden border border-white/5 cursor-pointer flex flex-col justify-end p-6 md:p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] bg-brand-charcoal-light h-full"
+                className="relative rounded-sm overflow-hidden border border-white/10 cursor-pointer flex flex-col justify-end p-6 md:p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] bg-brand-charcoal-light h-full group"
               >
-                {/* Background Swatch Color Fill (defaults when not hovered) */}
-                <div 
-                  className="absolute inset-0 transition-opacity duration-700 z-0"
-                  style={{ 
-                    backgroundColor: swatch.hex,
-                    opacity: isHovered ? 0.05 : 0.85 
-                  }}
-                />
-
-                {/* Background Material Image (Fades and scales in on hover) */}
-                <div 
-                  className="absolute inset-0 w-full h-full z-0 transition-opacity duration-700 pointer-events-none"
-                  style={{ opacity: isHovered ? 0.35 : 0 }}
-                >
+                {/* Background Material Image (Visible by default, zooms and brightens on hover) */}
+                <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
                   <Image
                     src={swatch.image}
                     alt={swatch.name}
                     fill
-                    className="object-cover"
-                    sizes="25vw"
+                    className={`object-cover transition-all duration-700 ease-out ${
+                      isHovered ? 'scale-110 opacity-90' : 'scale-100 opacity-60'
+                    }`}
+                    sizes="(max-width: 1024px) 100vw, 25vw"
                   />
                 </div>
+
+                {/* Color Swatch Tint Overlay (blends with image for color identity) */}
+                <div 
+                  className="absolute inset-0 transition-opacity duration-700 z-1 pointer-events-none mix-blend-multiply"
+                  style={{ 
+                    backgroundColor: swatch.hex,
+                    opacity: isHovered ? 0.3 : 0.65 
+                  }}
+                />
+
+                {/* Dark Gradient Overlay for flawless text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-2 pointer-events-none transition-opacity duration-700" />
 
                 {/* Content Panel */}
                 <div className="relative z-10 flex flex-col items-start w-full">
                   {/* Hex Tag */}
                   <span 
-                    className="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded-sm mb-3 select-all"
+                    className="text-[10px] font-mono tracking-wider px-2 py-0.5 rounded-sm mb-3 shadow-sm select-all"
                     style={{ 
                       backgroundColor: swatch.hex === '#FAF9F6' ? '#E85C0D' : '#ffffff',
                       color: swatch.hex === '#FAF9F6' ? '#ffffff' : '#121212'
@@ -110,9 +112,9 @@ export default function EarthTonePalette() {
                     {swatch.hex}
                   </span>
 
-                  <h3 className={`font-serif tracking-wider uppercase transition-all duration-500 ${
-                    swatch.hex === '#FAF9F6' && !isHovered ? 'text-brand-charcoal' : 'text-white'
-                  } ${isHovered ? 'text-lg md:text-2xl mb-2' : 'text-sm'}`}>
+                  <h3 className={`font-serif tracking-wider uppercase text-white transition-all duration-500 ${
+                    isHovered ? 'text-lg md:text-2xl mb-2' : 'text-sm md:text-base'
+                  }`}>
                     {swatch.name}
                   </h3>
 
@@ -126,7 +128,7 @@ export default function EarthTonePalette() {
                     transition={{ duration: 0.5, ease: 'easeOut' }}
                     className="overflow-hidden"
                   >
-                    <p className="text-xs text-gray-300 leading-relaxed font-light mt-2 max-w-md">
+                    <p className="text-xs text-gray-200 leading-relaxed font-light mt-2 max-w-md">
                       {swatch.description}
                     </p>
                   </motion.div>
