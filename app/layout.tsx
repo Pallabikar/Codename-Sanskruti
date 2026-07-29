@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Cinzel, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import JsonLd from "@/components/seo/JsonLd";
@@ -39,6 +40,21 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className="antialiased bg-brand-cream text-brand-charcoal min-h-screen flex flex-col">
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-Y1V07C8MJY"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-Y1V07C8MJY');
+          `}
+        </Script>
+
         <SmoothScroll>
           {children}
           <FloatingWhatsAppButton />
