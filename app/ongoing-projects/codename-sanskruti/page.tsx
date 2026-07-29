@@ -10,8 +10,8 @@ import { ArrowLeft, Home, Compass, ShieldCheck, MapPin } from 'lucide-react';
 import ApartmentConfigurations from '@/components/sections/ApartmentConfigurations';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'Codename Sanskruti Residences | Specifications & Layout',
-  description: 'View technical specifications, sizes, and layout plans for Codename Sanskruti 2 & 3 BHK luxury residences in Bhubaneswar, Odisha.',
+  title: 'Apartments for Sale in Bhubaneswar | Sanskruti 2, 3 & 4 BHK Homes',
+  description: "Looking for apartments for sale in Bhubaneswar? Discover Sanskruti's premium 2, 3 & 4 BHK homes with world-class amenities, excellent connectivity, and attractive launch pricing.",
   path: '/ongoing-projects/codename-sanskruti',
 });
 

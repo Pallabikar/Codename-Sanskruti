@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 const BASE_URL = 'https://codenamesanskruti.com';
 
 const DEFAULT_METADATA = {
-  title: 'Codename Sanskruti | Premium Heritage-Inspired Residences in Bhubaneswar',
-  description: 'Experience premium living at Codename Sanskruti by Motwani Constructions in Bhubaneswar. Temple-inspired luxury apartments featuring Kalinga architecture, Pattachitra details, and courtyard living.',
+  title: 'Sanskruti Bhubaneswar | Premium 2, 3 & 4 BHK Homes',
+  description: 'Find your perfect home at Sanskruti, Bhubaneswar. Premium 2, 3 & 4 BHK apartments with world-class amenities, strategic location, and exclusive launch offers. Book a free site visit today.',
   keywords: [
     'Kalinga architecture apartments Bhubaneswar',
     'temple-inspired residences Odisha',
@@ -32,9 +32,7 @@ export function constructMetadata({
   path,
   ogImage = DEFAULT_METADATA.ogImage,
 }: MetadataProps): Metadata {
-  const pageTitle = title 
-    ? `${title} | Codename Sanskruti` 
-    : DEFAULT_METADATA.title;
+  const pageTitle = title || DEFAULT_METADATA.title;
   
   const pageDesc = description || DEFAULT_METADATA.description;
   const pageKeywords = Array.from(new Set([...DEFAULT_METADATA.keywords, ...keywords]));

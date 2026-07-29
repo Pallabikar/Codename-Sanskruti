@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/why-us',
     '/ongoing-projects/codename-sanskruti',
     '/news',
+    '/contact',
   ];
 
   return routes.map((route) => ({

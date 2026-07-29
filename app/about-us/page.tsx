@@ -7,8 +7,8 @@ import { constructMetadata } from '@/lib/metadata';
 import { ArrowLeft, Users, Shield, Trophy } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({
-  title: 'About Us | Motwani Constructions',
-  description: 'Learn about Motwani Constructions, a leading luxury real estate developer in Bhubaneswar, Odisha. Guided by quality, trust, and cultural values.',
+  title: 'About Sanskruti | 2, 3 & 4 BHK Apartments for Sale',
+  description: 'Choose Sanskruti for premium living in Bhubaneswar. Explore spacious 2, 3 & 4 BHK apartments with world-class amenities. Get pricing, floor plans, and book a free site visit today.',
   path: '/about-us',
 });
 
