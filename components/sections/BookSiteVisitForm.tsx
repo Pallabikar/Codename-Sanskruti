@@ -26,12 +26,14 @@ interface BookSiteVisitFormProps {
   className?: string;
   isCompact?: boolean;
   onSuccessCallback?: () => void;
+  initialConfig?: string;
 }
 
 export default function BookSiteVisitForm({
   className = '',
   isCompact = false,
   onSuccessCallback,
+  initialConfig,
 }: BookSiteVisitFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -54,11 +56,25 @@ export default function BookSiteVisitForm({
       name: '',
       phone: '',
       email: '',
-      configuration: '',
+      configuration: initialConfig || '',
       timeline: '',
       agreeWhatsapp: true,
     },
   });
+
+  React.useEffect(() => {
+    if (initialConfig) {
+      let configVal = initialConfig;
+      if (initialConfig.includes('2 BHK')) configVal = '2 BHK';
+      else if (initialConfig.includes('3 BHK')) configVal = '3 BHK';
+      else if (initialConfig.includes('4 BHK')) configVal = '4 BHK';
+
+      reset((formValues) => ({
+        ...formValues,
+        configuration: configVal,
+      }));
+    }
+  }, [initialConfig, reset]);
 
   const triggerDownload = (url: string) => {
     const pdfUrl = url.startsWith('http') ? url : `${window.location.origin}${url.startsWith('/') ? '' : '/'}${url}`;

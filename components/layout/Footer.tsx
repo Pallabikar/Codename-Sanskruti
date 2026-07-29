@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
+import { Phone, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -41,11 +41,6 @@ export default function Footer() {
             <p className="font-sans text-xs text-gray-400 leading-relaxed">
               Crafting architectural masterpieces that honor Odisha's rich heritage and spiritual soul while setting new benchmarks for premium contemporary living.
             </p>
-
-            <div className="flex flex-col gap-1.5 text-xs text-gray-400">
-              <span className="font-semibold text-brand-orange">RERA Registration:</span>
-              <span>PR/OR/BBS/2026/00912 (Proposed)</span>
-            </div>
           </div>
 
           {/* Quick Links Column */}
@@ -90,25 +85,13 @@ export default function Footer() {
           {/* Contact Details Column */}
           <div className="flex flex-col gap-6">
             <h3 className="font-serif text-sm text-white tracking-widest uppercase border-b border-brand-terracotta/20 pb-2">
-              Corporate Office
+              Contact Us
             </h3>
             <ul className="flex flex-col gap-4 text-xs text-gray-400">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  Motwani Towers, 4th Floor, Janpath Rd, Saheed Nagar, Bhubaneswar, Odisha 751007
-                </span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-brand-orange shrink-0" />
-                <Link href="tel:+919437170733" className="hover:text-brand-orange transition-colors">
-                  +91 94371 70733
-                </Link>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-brand-orange shrink-0" />
-                <Link href="mailto:info@motwaniconstructions.com" className="hover:text-brand-orange transition-colors">
-                  info@motwaniconstructions.com
+                <Link href="tel:+919777979501" className="hover:text-brand-orange transition-colors font-medium text-sm text-white">
+                  +91 97779 79501
                 </Link>
               </li>
             </ul>
@@ -120,7 +103,7 @@ export default function Footer() {
               Disclaimer
             </h3>
             <p className="font-sans text-[10px] text-gray-500 leading-relaxed">
-              All representations, artistic renderings, images, animations, layout plans, and specifications in this landing page are conceptual and illustrative of the proposed project "Codename Sanskruti". Actual finishes and features are subject to change as approved by local planning authorities and the RERA regulatory body.
+              All representations, artistic renderings, images, animations, layout plans, and specifications in this landing page are conceptual and illustrative of the proposed project "Codename Sanskruti". Actual finishes and features are subject to change as approved by local planning authorities.
             </p>
           </div>
         </div>
@@ -131,7 +114,6 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/rera-info" className="hover:text-white transition-colors">RERA Disclosures</Link>
           </div>
         </div>
       </div>

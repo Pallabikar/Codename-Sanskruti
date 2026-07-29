@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Mail, Phone, MapPin, Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
 import BookSiteVisitForm from './BookSiteVisitForm';
 
 export default function CTAContactForm() {
@@ -26,7 +26,7 @@ export default function CTAContactForm() {
             </p>
 
             {/* Value Highlights */}
-            <div className="space-y-3 mb-8">
+            <div className="space-y-3">
               <div className="flex items-center gap-3 text-xs font-medium text-brand-charcoal">
                 <CheckCircle className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>Instant Floor Plan & Cost Sheet on WhatsApp</span>
@@ -38,42 +38,6 @@ export default function CTAContactForm() {
               <div className="flex items-center gap-3 text-xs font-medium text-brand-charcoal">
                 <Calendar className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>Flexible Site Tour Timing with Relationship Executive</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col gap-6 text-xs text-gray-600 border-t border-gray-200/80 pt-6">
-            <div className="flex items-start gap-4">
-              <MapPin className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-serif text-sm text-brand-charcoal font-semibold mb-1">Corporate Headquarters</h4>
-                <p className="leading-relaxed">
-                  Motwani Towers, Janpath Rd, Saheed Nagar, Bhubaneswar, Odisha 751007
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Phone className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-serif text-sm text-brand-charcoal font-semibold mb-1">Sales Hotline</h4>
-                <p className="leading-relaxed">
-                  <a href="tel:+919437170733" className="hover:text-brand-orange transition-colors font-medium">
-                    +91 94371 70733
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Mail className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" />
-              <div>
-                <h4 className="font-serif text-sm text-brand-charcoal font-semibold mb-1">Email Correspondence</h4>
-                <p className="leading-relaxed">
-                  <a href="mailto:info@motwaniconstructions.com" className="hover:text-brand-orange transition-colors">
-                    info@motwaniconstructions.com
-                  </a>
-                </p>
               </div>
             </div>
           </div>

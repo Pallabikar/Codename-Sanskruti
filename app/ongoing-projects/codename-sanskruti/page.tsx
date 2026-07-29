@@ -7,6 +7,8 @@ import Footer from '@/components/layout/Footer';
 import { constructMetadata } from '@/lib/metadata';
 import { ArrowLeft, Home, Compass, ShieldCheck, MapPin } from 'lucide-react';
 
+import ApartmentConfigurations from '@/components/sections/ApartmentConfigurations';
+
 export const metadata: Metadata = constructMetadata({
   title: 'Codename Sanskruti Residences | Specifications & Layout',
   description: 'View technical specifications, sizes, and layout plans for Codename Sanskruti 2 & 3 BHK luxury residences in Bhubaneswar, Odisha.',
@@ -69,38 +71,7 @@ export default function CodenameSanskrutiProject() {
         <h2 className="text-2xl font-serif text-brand-charcoal mb-6 border-b border-brand-terracotta/10 pb-2">
           Apartment Configurations
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {CONFIGURATIONS.map((c, idx) => (
-            <div key={idx} className="bg-white p-6 border border-brand-terracotta/5 shadow-sm rounded-sm flex flex-col justify-between">
-              <div>
-                <span className="text-xs text-brand-orange font-bold uppercase tracking-widest block mb-2">Signature Suite</span>
-                <h3 className="font-serif text-lg text-brand-charcoal mb-4">{c.type}</h3>
-                
-                <ul className="space-y-2.5 text-xs text-gray-500 mb-6">
-                  <li className="flex items-center gap-2">
-                    <Home className="w-4 h-4 text-brand-terracotta shrink-0" />
-                    <span>Area: {c.area}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Compass className="w-4 h-4 text-brand-terracotta shrink-0" />
-                    <span>Vastu Facing: {c.facing}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-brand-terracotta shrink-0" />
-                    <span>Balconies: {c.balcony}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <Link 
-                href="/#contact"
-                className="w-full text-center border border-brand-charcoal text-brand-charcoal hover:bg-brand-charcoal hover:text-white py-2.5 rounded-sm text-xs font-bold tracking-widest uppercase transition-colors duration-300"
-              >
-                Request Floor Plan
-              </Link>
-            </div>
-          ))}
-        </div>
+        <ApartmentConfigurations configurations={CONFIGURATIONS} />
 
         {/* Tech Specs */}
         <h2 className="text-2xl font-serif text-brand-charcoal mb-6 border-b border-brand-terracotta/10 pb-2">

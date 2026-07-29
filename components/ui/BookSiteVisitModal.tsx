@@ -8,9 +8,10 @@ import BookSiteVisitForm from '@/components/sections/BookSiteVisitForm';
 interface BookSiteVisitModalProps {
   isOpen: boolean;
   onClose: () => void;
+  initialConfig?: string;
 }
 
-export default function BookSiteVisitModal({ isOpen, onClose }: BookSiteVisitModalProps) {
+export default function BookSiteVisitModal({ isOpen, onClose, initialConfig }: BookSiteVisitModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -41,11 +42,15 @@ export default function BookSiteVisitModal({ isOpen, onClose }: BookSiteVisitMod
               <X className="w-5 h-5 transition-transform duration-300 group-hover:rotate-90" />
             </button>
 
-            <BookSiteVisitForm isCompact={true} onSuccessCallback={() => {
-              setTimeout(() => {
-                onClose();
-              }, 4000);
-            }} />
+            <BookSiteVisitForm 
+              initialConfig={initialConfig} 
+              isCompact={true} 
+              onSuccessCallback={() => {
+                setTimeout(() => {
+                  onClose();
+                }, 4000);
+              }} 
+            />
           </motion.div>
         </div>
       )}

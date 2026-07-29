@@ -32,7 +32,7 @@ export default function JsonLd() {
         "url": "https://codenamesanskruti.com",
         "logo": "https://codenamesanskruti.com/logo.png",
         "image": "https://codenamesanskruti.com/images/og-preview.jpg",
-        "telephone": "+91-9437170733",
+        "telephone": "+91-9777979501",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Bhubaneswar",
