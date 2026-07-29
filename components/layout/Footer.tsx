@@ -68,12 +68,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
-                  <span>Careers</span>
-                  <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />
-                </Link>
-              </li>
-              <li>
                 <Link href="/news" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
                   <span>News & Updates</span>
                   <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />

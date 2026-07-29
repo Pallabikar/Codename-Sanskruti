@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about-us',
     '/why-us',
     '/ongoing-projects/codename-sanskruti',
-    '/careers',
     '/news',
   ];
 

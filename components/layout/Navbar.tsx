@@ -14,7 +14,6 @@ const NAV_LINKS = [
   { label: 'About Us', href: '/about-us' },
   { label: 'Why Us', href: '/why-us' },
   { label: 'Projects', href: '/ongoing-projects/codename-sanskruti' },
-  { label: 'Careers', href: '/careers' },
   { label: 'News', href: '/news' },
 ];
 
