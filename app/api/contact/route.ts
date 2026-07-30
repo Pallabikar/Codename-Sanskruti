@@ -19,6 +19,18 @@ const leadSchema = z.object({
 });
 
 function getTransporter() {
+  if (process.env.RESEND_API_KEY) {
+    return nodemailer.createTransport({
+      host: 'smtp.resend.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'resend',
+        pass: process.env.RESEND_API_KEY,
+      },
+    });
+  }
+
   const host = process.env.SMTP_HOST || 'smtp.gmail.com';
   const port = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 465;
   const user = process.env.SMTP_USER || 'beyondrealty9@gmail.com';
@@ -31,6 +43,7 @@ function getTransporter() {
     auth: { user, pass },
   });
 }
+
 
 // 1. Send E-Brochure to User's Registered Email Address
 async function sendBrochureEmail(recipientEmail: string, recipientName: string, directPdfUrl: string) {
