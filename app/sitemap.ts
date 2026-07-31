@@ -1,20 +1,21 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://codenamesanskruti.com';
+  const baseUrl = "https://sanskruti.ind.in";
+
   const routes = [
-    '',
-    '/about-us',
-    '/why-us',
-    '/ongoing-projects/codename-sanskruti',
-    '/news',
-    '/contact',
+    "",
+    "/about-us",
+    "/why-us",
+    "/ongoing-projects/codename-sanskruti",
+    "/news",
+    "/contact",
   ];
 
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    changeFrequency: "weekly",
+    priority: route === "" ? 1 : 0.8,
   }));
 }
