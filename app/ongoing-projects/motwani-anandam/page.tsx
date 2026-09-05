@@ -63,6 +63,9 @@ export default function MotwaniAnandamProject() {
             <span className="bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-bold px-4 py-2.5 uppercase tracking-widest rounded-sm">
               Ongoing Project
             </span>
+            <span className="bg-amber-700/10 border border-amber-700/20 text-amber-900 text-xs font-bold px-4 py-2.5 uppercase tracking-wider rounded-sm">
+              Architecture: Preetech Architect
+            </span>
           </div>
         </div>
         
