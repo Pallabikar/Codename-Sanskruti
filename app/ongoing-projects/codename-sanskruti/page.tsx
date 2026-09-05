@@ -16,9 +16,9 @@ export const metadata: Metadata = constructMetadata({
 });
 
 const CONFIGURATIONS = [
-  { type: '2 BHK Heritage Elite', area: '1,350 Sq.Ft.', facing: 'East / West', balcony: '2 Spacious Balconies' },
-  { type: '3 BHK Heritage Grand', area: '1,850 Sq.Ft.', facing: 'East / North', balcony: '3 Spacious Balconies' },
-  { type: '3 BHK Sanskruti Royal', area: '2,200 Sq.Ft.', facing: 'Corner Plot / 3 Side Open', balcony: 'Wrap-around Balcony' },
+  { type: '2 BHK Heritage Elite', area: '1,424 Sq.Ft.', facing: 'North - South', balcony: '2 Balconies' },
+  { type: '3 BHK Heritage Grand', area: '1,883 Sq.Ft.', facing: 'North - South', balcony: '2 Balconies' },
+  { type: '4 BHK Sanskruti Royal', area: '2,823 Sq.Ft.', facing: 'North - South', balcony: '4 Balconies' },
 ];
 
 export default function CodenameSanskrutiProject() {
@@ -39,14 +39,26 @@ export default function CodenameSanskrutiProject() {
             <h1 className="text-4xl md:text-5xl font-serif text-brand-charcoal mb-2 leading-tight">
               Codename Sanskruti
             </h1>
-            <p className="text-sm text-brand-terracotta font-medium flex items-center gap-2">
-              <MapPin className="w-4 h-4 shrink-0" />
-              <span>Patia, Bhubaneswar, Odisha</span>
+            <p className="text-sm text-brand-terracotta font-medium flex items-start gap-2">
+              <MapPin className="w-4 h-4 shrink-0 mt-0.5" />
+              <span>
+                Siula, near Uttara square.<br />
+                Beside NH 316
+              </span>
             </p>
           </div>
-          <span className="self-start lg:self-auto bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-bold px-4 py-2 uppercase tracking-widest rounded-sm">
-            Ongoing Project
-          </span>
+          <div className="flex flex-wrap items-center gap-3 self-start lg:self-auto">
+            <span className="bg-brand-orange/10 border border-brand-orange/20 text-brand-orange text-xs font-bold px-4 py-2 uppercase tracking-widest rounded-sm">
+              Ongoing Project
+            </span>
+            <span className="bg-emerald-600/10 border border-emerald-600/25 text-emerald-800 text-xs font-bold px-4 py-2 tracking-wider rounded-sm flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>RERA Approved: RP/26/2026/01587</span>
+            </span>
+            <span className="bg-amber-700/10 border border-amber-700/20 text-amber-900 text-xs font-bold px-4 py-2 uppercase tracking-wider rounded-sm">
+              Architecture: Aakar Architect
+            </span>
+          </div>
         </div>
         
         <div className="w-20 h-[3px] bg-brand-orange mb-10" />
@@ -77,26 +89,59 @@ export default function CodenameSanskrutiProject() {
         <h2 className="text-2xl font-serif text-brand-charcoal mb-6 border-b border-brand-terracotta/10 pb-2">
           Premium Specifications
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs text-gray-600 leading-relaxed mb-12">
-          <div>
-            <h3 className="font-serif text-base text-brand-charcoal mb-3">Structure & Architecture</h3>
-            <p className="mb-4">
-              Seismic Zone III compliant RCC framed shear wall structure built with grade-A steel reinforcement and concrete. Aerated autoclave block masonry for superior thermal insulation.
-            </p>
-            <h3 className="font-serif text-base text-brand-charcoal mb-3">Heritage Finishes</h3>
-            <p>
-              Selected building segments finished in natural red sandstone cladding, inspired by temple architectural lines, treated with weatherproof protective sealants.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs text-gray-600 leading-relaxed mb-16">
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs flex flex-col justify-between">
+            <div>
+              <h3 className="font-serif text-base text-brand-charcoal mb-2">Structure & Architecture</h3>
+              <p className="text-gray-500 mb-2">
+                Designed by <strong>Aakar Architect</strong>. Seismic Zone III compliant RCC framed structure built with high-grade reinforcement steel and precision block masonry.
+              </p>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-brand-orange">Partner: Aakar Architect</span>
           </div>
-          <div>
-            <h3 className="font-serif text-base text-brand-charcoal mb-3">Flooring & Fittings</h3>
-            <p className="mb-4">
-              Premium vitrified double-charge tiles in living room, dining, and bedrooms. Anti-skid ceramic tiles in balconies. High-end CP fittings by Jaquar/Kohler, and sanitaryware by Hindware/TOTO.
-            </p>
-            <h3 className="font-serif text-base text-brand-charcoal mb-3">Smart Features</h3>
-            <p>
-              Video door phones, provision for smart home automation, high-speed fiber connectivity, automatic elevator systems with power backup, and 3-tier security round the clock.
-            </p>
+
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
+            <h3 className="font-serif text-base text-brand-charcoal mb-3">Toilet & Plumbing</h3>
+            <ul className="space-y-1.5 text-gray-500">
+              <li className="flex items-start gap-1.5">• <span>CP fittings of Jaguar / Hindware collection or similar.</span></li>
+              <li className="flex items-start gap-1.5">• <span>CPVC pipes for hot & cold water distribution.</span></li>
+              <li className="flex items-start gap-1.5">• <span>Concealed & underslung plumbing work.</span></li>
+              <li className="flex items-start gap-1.5">• <span>Provision of exhaust fan & geyser.</span></li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
+            <h3 className="font-serif text-base text-brand-charcoal mb-3">Electrical & Power</h3>
+            <ul className="space-y-1.5 text-gray-500">
+              <li className="flex items-start gap-1.5">• <span>Concealed wiring & modular switches of Legrand / Schindler or similar.</span></li>
+              <li className="flex items-start gap-1.5">• <span>Provision of AC point & TV point in all bedrooms & living room.</span></li>
+              <li className="flex items-start gap-1.5">• <span>Provision of power back up up to 1 kW.</span></li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
+            <h3 className="font-serif text-base text-brand-charcoal mb-3">Colour & Finishes</h3>
+            <ul className="space-y-1.5 text-gray-500">
+              <li className="flex items-start gap-1.5">• <span><strong>Internal:</strong> Double coat with primer coat wall putty.</span></li>
+              <li className="flex items-start gap-1.5">• <span><strong>External:</strong> Weather resistant paint.</span></li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
+            <h3 className="font-serif text-base text-brand-charcoal mb-3">Security & Amenities</h3>
+            <ul className="space-y-1.5 text-gray-500">
+              <li className="flex items-start gap-1.5">• <span>Gated security system.</span></li>
+              <li className="flex items-start gap-1.5">• <span>Intercom facilities & CCTV surveillance.</span></li>
+              <li className="flex items-start gap-1.5">• <span>ICT room to be provided.</span></li>
+            </ul>
+          </div>
+
+          <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
+            <h3 className="font-serif text-base text-brand-charcoal mb-3">Staircase, Railing & Balcony</h3>
+            <ul className="space-y-1.5 text-gray-500">
+              <li className="flex items-start gap-1.5">• <span><strong>Staircase:</strong> Kota Stone / Anti-skid Tiles / Epoxy Flooring with MS Railing.</span></li>
+              <li className="flex items-start gap-1.5">• <span><strong>Balcony:</strong> MS Railing.</span></li>
+            </ul>
           </div>
         </div>
       </main>

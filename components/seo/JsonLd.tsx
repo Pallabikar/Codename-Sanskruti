@@ -8,11 +8,13 @@ export default function JsonLd() {
         "@type": "RealEstateListing",
         "@id": "https://codenamesanskruti.com/#listing",
         "name": "Codename Sanskruti by Motwani Constructions",
+        "identifier": "RP/26/2026/01587",
         "description": "A luxury residential development in Bhubaneswar, Odisha inspired by traditional temple architecture and regional crafts.",
         "url": "https://codenamesanskruti.com",
         "image": "https://codenamesanskruti.com/images/og-preview.jpg",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Siula, near Uttara square, Beside NH 316",
           "addressLocality": "Bhubaneswar",
           "addressRegion": "Odisha",
           "addressCountry": "IN"

@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import HeroCanvasFallback from '../ui/HeroCanvasFallback';
 import Link from 'next/link';
+import { ShieldCheck } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from '@/lib/gsap';
 
@@ -118,15 +119,22 @@ export default function HeroVideo() {
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center select-none hero-content">
         
-        {/* Subtitle */}
-        <motion.span
+        {/* RERA Badge & Subtitle */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-xs md:text-sm font-sans tracking-[0.4em] text-brand-orange uppercase font-bold mb-4"
+          className="flex flex-col sm:flex-row items-center gap-2 mb-4"
         >
-          Motwani Constructions Presents
-        </motion.span>
+          <span className="text-xs md:text-sm font-sans tracking-[0.4em] text-brand-orange uppercase font-bold">
+            Motwani Constructions Presents
+          </span>
+          <span className="hidden sm:inline text-brand-orange/40">•</span>
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-[11px] font-mono font-semibold text-emerald-300">
+            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+            <span>RERA Approved: RP/26/2026/01587</span>
+          </span>
+        </motion.div>
 
         {/* Title */}
         <motion.h1

@@ -17,7 +17,7 @@ const ARTICLES = [
     title: 'Groundbreaking Ceremony Celebrated at Codename Sanskruti',
     date: 'July 05, 2026',
     author: 'Corporate Relations',
-    excerpt: 'Motwani Constructions celebrated the Bhoomi Puja and groundbreaking ceremony of Codename Sanskruti at Patia, Bhubaneswar, marked by rituals honoring local deities.',
+    excerpt: 'Motwani Constructions celebrated the Bhoomi Puja and groundbreaking ceremony of Codename Sanskruti at Siula, near Uttara square, Beside NH 316, marked by rituals honoring local deities.',
   },
   {
     title: 'Recognized for Architecture Heritage Preservation',

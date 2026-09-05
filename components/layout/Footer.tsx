@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, ArrowUpRight } from 'lucide-react';
+import { Phone, ArrowUpRight, ShieldCheck } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -91,11 +91,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal / Site Info Column */}
-          <div className="flex flex-col gap-6">
+          {/* Legal / RERA & Disclaimer Column */}
+          <div className="flex flex-col gap-4">
             <h3 className="font-serif text-sm text-white tracking-widest uppercase border-b border-brand-terracotta/20 pb-2">
-              Disclaimer
+              RERA & Legal
             </h3>
+            <div className="inline-flex items-center gap-2 px-3 py-2 bg-emerald-950/80 border border-emerald-500/30 rounded-xs text-emerald-400 text-xs font-mono font-semibold">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>RERA Approved: RP/26/2026/01587</span>
+            </div>
             <p className="font-sans text-[10px] text-gray-500 leading-relaxed">
               All representations, artistic renderings, images, animations, layout plans, and specifications in this landing page are conceptual and illustrative of the proposed project "Codename Sanskruti". Actual finishes and features are subject to change as approved by local planning authorities.
             </p>
@@ -104,7 +108,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-brand-terracotta/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-gray-500">
-          <p>© {currentYear} Motwani Constructions. All Rights Reserved.</p>
+          <p>© {currentYear} Motwani Constructions. All Rights Reserved. | RERA Reg. No: RP/26/2026/01587</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms of Service</Link>

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { User, Phone, Mail, ChevronDown, Star, Loader2, CheckCircle2, Sparkles, Download, MessageSquareShare } from 'lucide-react';
+import { User, Phone, Mail, ChevronDown, Star, Loader2, CheckCircle2, Sparkles, Download, MessageSquareShare, ShieldCheck } from 'lucide-react';
 
 const siteVisitSchema = z.object({
   name: z
@@ -146,9 +146,15 @@ export default function BookSiteVisitForm({
       <div className={`${isCompact ? 'p-6' : 'p-6 md:p-8'}`}>
         {/* Header Section */}
         <div className="text-center mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full text-brand-orange font-bold text-xs uppercase tracking-wider mb-2">
-            <span className="text-base leading-none">🏡</span>
-            <span>BOOK A FREE SITE VISIT</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20 rounded-full text-brand-orange font-bold text-xs uppercase tracking-wider">
+              <span className="text-base leading-none">🏡</span>
+              <span>BOOK A FREE SITE VISIT</span>
+            </div>
+            <div className="inline-flex items-center gap-1 px-2.5 py-1 bg-emerald-50 border border-emerald-200 rounded-full text-emerald-800 font-mono text-[10px] font-semibold">
+              <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
+              <span>RERA RP/26/2026/01587</span>
+            </div>
           </div>
 
           <p className="font-sans text-xs md:text-sm text-gray-600 leading-relaxed font-medium mt-1">
