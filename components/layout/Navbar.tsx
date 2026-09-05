@@ -13,7 +13,7 @@ const PROJECT_ITEMS = [
   { label: 'All Projects', href: '/projects', desc: 'Explore Complete Portfolio' },
   { label: 'Codename Sanskruti', href: '/ongoing-projects/codename-sanskruti', desc: 'Siula, near Uttara square. Beside NH 316' },
   { label: 'Motwani Anantam', href: '/ongoing-projects/motwani-anantam', desc: 'Kesora Square (Beside Puribypass NH 316)' },
-  { label: 'Motwani Anandam', href: '/ongoing-projects/motwani-anandam', desc: 'Upcoming Landmark, Bhubaneswar' },
+  { label: 'Motwani Anandam', href: '/ongoing-projects/motwani-anandam', desc: 'Opposite CET College, Near Ghatikia' },
 ];
 
 export default function Navbar() {

@@ -44,15 +44,15 @@ const PROJECTS_LIST = [
   {
     id: 'motwani-anandam',
     title: 'Motwani Anandam',
-    badge: 'Upcoming Project',
-    badgeColor: 'bg-amber-600/10 text-amber-800 border-amber-600/20',
-    rera: 'Pre-Launch EOI',
+    badge: 'Ongoing Project',
+    badgeColor: 'bg-brand-orange/10 text-brand-orange border-brand-orange/20',
+    rera: 'RERA Approved',
     architect: 'Motwani Constructions',
-    location: 'Key Growth Corridor, Bhubaneswar',
-    image: '/images/og-preview.jpg',
+    location: 'Just opposite CET College, Near Ghatikia, Bhubaneswar',
+    image: '/images/anandam-hero.jpg',
     href: '/ongoing-projects/motwani-anandam',
-    description: 'An upcoming premium residential enclave designed for tranquil contemporary living in Bhubaneswar.',
-    specs: 'Upcoming Landmark | Priority EOI',
+    description: 'B+G+12 Storied high-rise community across 4 blocks with 165 units featuring premium 3 BHK + Puja luxury homes opposite CET College.',
+    specs: '3 BHK + Puja | B+G+12 | 165 Units',
   },
 ];
 
