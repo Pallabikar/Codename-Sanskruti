@@ -5,21 +5,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, Calendar } from 'lucide-react';
+import { Menu, X, Phone, Calendar, ChevronDown } from 'lucide-react';
 import BookSiteVisitModal from '@/components/ui/BookSiteVisitModal';
 import BackgroundMusicPlayer from '@/components/ui/BackgroundMusicPlayer';
 
-const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Why Us', href: '/why-us' },
-  { label: 'Projects', href: '/ongoing-projects/codename-sanskruti' },
-  { label: 'News', href: '/news' },
+const PROJECT_ITEMS = [
+  { label: 'All Projects', href: '/projects', desc: 'Explore Complete Portfolio' },
+  { label: 'Codename Sanskruti', href: '/ongoing-projects/codename-sanskruti', desc: 'Siula, near Uttara square. Beside NH 316' },
+  { label: 'Motwani Anantam', href: '/ongoing-projects/motwani-anantam', desc: 'Kesora Square (Beside Puribypass NH 316)' },
+  { label: 'Motwani Anandam', href: '/ongoing-projects/motwani-anandam', desc: 'Upcoming Landmark, Bhubaneswar' },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
 
@@ -36,9 +36,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
+  // Close mobile menu & dropdown when route changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsProjectsDropdownOpen(false);
   }, [pathname]);
 
   // Auto-open lead capture popup 1.5 seconds after website load
@@ -88,31 +89,86 @@ export default function Navbar() {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
-                    isActive 
-                      ? 'text-brand-orange' 
-                      : isScrolled
-                        ? 'text-brand-charcoal hover:text-brand-orange'
-                        : 'text-white hover:text-brand-orange'
-                  }`}
-                >
-                  {link.label}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeNavUnderline"
-                      className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-orange"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+            <Link
+              href="/"
+              className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
+                pathname === '/' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/about-us"
+              className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
+                pathname === '/about-us' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
+            >
+              About Us
+            </Link>
+
+            <Link
+              href="/why-us"
+              className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
+                pathname === '/why-us' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
+            >
+              Why Us
+            </Link>
+
+            {/* Projects Dropdown Container */}
+            <div 
+              className="relative group py-2"
+              onMouseEnter={() => setIsProjectsDropdownOpen(true)}
+              onMouseLeave={() => setIsProjectsDropdownOpen(false)}
+            >
+              <Link
+                href="/projects"
+                className={`flex items-center gap-1 text-xs tracking-widest font-bold uppercase transition-colors duration-300 drop-shadow-sm ${
+                  pathname.includes('project') ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+                }`}
+              >
+                <span>Projects</span>
+                <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+              </Link>
+
+              {/* Dropdown Menu */}
+              <AnimatePresence>
+                {isProjectsDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 w-72 bg-brand-charcoal text-white rounded-sm shadow-2xl border border-brand-terracotta/20 p-2 overflow-hidden z-50"
+                  >
+                    {PROJECT_ITEMS.map((item, idx) => (
+                      <Link
+                        key={idx}
+                        href={item.href}
+                        className="block p-3 rounded-xs hover:bg-brand-orange/20 transition-colors group/item"
+                      >
+                        <span className="font-serif text-sm text-brand-orange font-bold uppercase tracking-wider block group-hover/item:text-white transition-colors">
+                          {item.label}
+                        </span>
+                        <span className="text-[10px] text-gray-400 font-light block leading-tight">
+                          {item.desc}
+                        </span>
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link
+              href="/news"
+              className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
+                pathname === '/news' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
+            >
+              News
+            </Link>
           </nav>
 
           {/* Action Button & Mobile Trigger */}
@@ -167,36 +223,67 @@ export default function Navbar() {
             {/* Background Texture Accents */}
             <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#8b3a1a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
-            <nav className="flex flex-col gap-6 items-start">
-              {NAV_LINKS.map((link, idx) => {
-                const isActive = pathname === link.href;
-                return (
-                  <motion.div
-                    key={link.href}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.08, duration: 0.5, ease: 'easeOut' }}
-                    className="w-full"
-                  >
-                    <Link
-                      href={link.href}
-                      className={`block font-serif text-3xl tracking-widest uppercase transition-all duration-300 ${
-                        isActive 
-                          ? 'text-brand-orange pl-4 border-l-2 border-brand-orange' 
-                          : 'text-brand-charcoal hover:text-brand-orange hover:translate-x-2'
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
+            <nav className="flex flex-col gap-4 items-start w-full max-w-sm">
+              <Link
+                href="/"
+                className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
+                  pathname === '/' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                }`}
+              >
+                Home
+              </Link>
+              <Link
+                href="/about-us"
+                className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
+                  pathname === '/about-us' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                }`}
+              >
+                About Us
+              </Link>
+              <Link
+                href="/why-us"
+                className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
+                  pathname === '/why-us' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                }`}
+              >
+                Why Us
+              </Link>
+
+              {/* Projects Submenu */}
+              <div className="w-full pl-2 border-l-2 border-brand-terracotta/20 py-1">
+                <Link
+                  href="/projects"
+                  className="font-serif text-xl tracking-widest uppercase text-brand-orange font-bold block mb-2"
+                >
+                  Projects
+                </Link>
+                <div className="flex flex-col gap-2 pl-3">
+                  <Link href="/ongoing-projects/codename-sanskruti" className="text-xs font-semibold text-brand-charcoal hover:text-brand-orange">
+                    • Codename Sanskruti
+                  </Link>
+                  <Link href="/ongoing-projects/motwani-anantam" className="text-xs font-semibold text-brand-charcoal hover:text-brand-orange">
+                    • Motwani Anantam (Kesora Sq.)
+                  </Link>
+                  <Link href="/ongoing-projects/motwani-anandam" className="text-xs font-semibold text-brand-charcoal hover:text-brand-orange">
+                    • Motwani Anandam (Upcoming)
+                  </Link>
+                </div>
+              </div>
+
+              <Link
+                href="/news"
+                className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
+                  pathname === '/news' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                }`}
+              >
+                News
+              </Link>
             </nav>
 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: NAV_LINKS.length * 0.08, duration: 0.5 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
               className="mt-12 flex flex-col gap-4 w-full max-w-sm"
             >
               <button 
