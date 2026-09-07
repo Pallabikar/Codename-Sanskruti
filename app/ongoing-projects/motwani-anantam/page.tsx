@@ -16,16 +16,25 @@ export const metadata: Metadata = constructMetadata({
 
 const ANANTAM_CONFIGURATIONS = [
   { 
-    type: '3 BHK Anantam Luxury Suite', 
-    area: '1,850 - 2,150 Sq.Ft.', 
-    facing: 'Vastu Compliant (North / East)', 
-    balcony: '3 Spacious Balconies' 
+    type: '3 BHK', 
+    sba: '2,190 Sq.Ft.', 
+    flatArea: '1,470 Sq.Ft.', 
+    ca: '1,145 Sq.Ft.', 
+    layout: '3 Bedrooms, 3 Toilets, 3 Balconies (including 1 Dry Balcony), Kitchen, Living & Dining Area' 
   },
   { 
-    type: '4 BHK Anantam Royal Penthouse', 
-    area: '2,650 - 3,100 Sq.Ft.', 
-    facing: 'Corner Unit (3-Side Open)', 
-    balcony: 'Wrap-Around Panoramic Balconies' 
+    type: '3 BHK Type 2 (Larger)', 
+    sba: '2,430 Sq.Ft.', 
+    flatArea: '1,638 Sq.Ft.', 
+    ca: '1,245 Sq.Ft.', 
+    layout: '3 Bedrooms, 3 Toilets, 4 Balconies (including 1 Dry Balcony), Kitchen, Living & Dining Area' 
+  },
+  { 
+    type: '4 BHK', 
+    sba: '3,190 Sq.Ft.', 
+    flatArea: '1,940 Sq.Ft.', 
+    ca: '1,517 Sq.Ft.', 
+    layout: '4 Bedrooms, 4 Toilets, 4 Balconies (including 1 Dry Balcony), Kitchen, Store Room, Living & Dining Area' 
   },
 ];
 
