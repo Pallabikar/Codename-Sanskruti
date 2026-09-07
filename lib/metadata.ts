@@ -3,8 +3,8 @@ import { Metadata } from 'next';
 const BASE_URL = 'https://codenamesanskruti.com';
 
 const DEFAULT_METADATA = {
-  title: 'Sanskruti Bhubaneswar | Premium 2, 3 & 4 BHK Homes',
-  description: 'Find your perfect home at Sanskruti, Bhubaneswar. Premium 2, 3 & 4 BHK apartments with world-class amenities, strategic location, and exclusive launch offers. Book a free site visit today.',
+  title: 'Codename Sanskruti by Motwani Construction | Bhubaneswar',
+  description: 'Discover Codename Sanskruti by Motwani Construction in Bhubaneswar, offering premium 2, 3 & 4 BHK homes with thoughtfully designed spaces and modern lifestyle amenities.',
   keywords: [
     'Kalinga architecture apartments Bhubaneswar',
     'temple-inspired residences Odisha',
