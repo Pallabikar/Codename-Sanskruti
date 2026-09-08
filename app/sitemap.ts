@@ -10,6 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/ongoing-projects/codename-sanskruti",
     "/news",
     "/contact",
+    "/privacy-policy",
+    "/terms-and-conditions",
   ];
 
   return routes.map((route) => ({
