@@ -1,17 +1,19 @@
 import React from 'react';
 
 export default function JsonLd() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
+
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "RealEstateListing",
-        "@id": "https://codenamesanskruti.com/#listing",
+        "@id": `${baseUrl}/#listing`,
         "name": "Codename Sanskruti by Motwani Constructions",
         "identifier": "RP/26/2026/01587",
         "description": "A luxury residential development in Bhubaneswar, Odisha inspired by traditional temple architecture and regional crafts.",
-        "url": "https://codenamesanskruti.com",
-        "image": "https://codenamesanskruti.com/images/og-preview.jpg",
+        "url": baseUrl,
+        "image": `${baseUrl}/images/og-preview.jpg`,
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Siula, near Uttara square, Beside NH 316",
@@ -29,11 +31,11 @@ export default function JsonLd() {
       },
       {
         "@type": "RealEstateAgent",
-        "@id": "https://codenamesanskruti.com/#organization",
+        "@id": `${baseUrl}/#organization`,
         "name": "Motwani Constructions",
-        "url": "https://codenamesanskruti.com",
-        "logo": "https://codenamesanskruti.com/logo.png",
-        "image": "https://codenamesanskruti.com/images/og-preview.jpg",
+        "url": baseUrl,
+        "logo": `${baseUrl}/logo.png`,
+        "image": `${baseUrl}/images/og-preview.jpg`,
         "telephone": "+91-9777979501",
         "address": {
           "@type": "PostalAddress",

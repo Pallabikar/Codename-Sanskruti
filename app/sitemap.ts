@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sanskruti.ind.in";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sanskruti.ind.in";
 
   const routes = [
     "",

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const BASE_URL = 'https://codenamesanskruti.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
 
 const DEFAULT_METADATA = {
   title: 'Codename Sanskruti by Motwani Construction | Bhubaneswar',
