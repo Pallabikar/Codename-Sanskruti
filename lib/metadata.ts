@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
+const BASE_URL = rawUrl.includes("vercel.app") ? "https://www.sanskruti.ind.in" : rawUrl;
 
 const DEFAULT_METADATA = {
   title: 'Codename Sanskruti by Motwani Construction | Bhubaneswar',
@@ -39,6 +40,7 @@ export function constructMetadata({
   const canonicalUrl = `${BASE_URL}${path}`;
 
   return {
+    metadataBase: new URL(BASE_URL),
     title: pageTitle,
     description: pageDesc,
     keywords: pageKeywords,
