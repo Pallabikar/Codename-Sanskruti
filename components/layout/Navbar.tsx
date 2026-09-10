@@ -169,6 +169,15 @@ export default function Navbar() {
             >
               News
             </Link>
+
+            <Link
+              href="/contact"
+              className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
+                pathname === '/contact' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+              }`}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Action Button & Mobile Trigger */}
@@ -277,6 +286,15 @@ export default function Navbar() {
                 }`}
               >
                 News
+              </Link>
+
+              <Link
+                href="/contact"
+                className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
+                  pathname === '/contact' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                }`}
+              >
+                Contact Us
               </Link>
             </nav>
 

@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Calendar, CheckCircle, ShieldCheck } from 'lucide-react';
+import Link from 'next/link';
+import { Calendar, CheckCircle, ShieldCheck, ArrowRight } from 'lucide-react';
 import BookSiteVisitForm from './BookSiteVisitForm';
 
 export default function CTAContactForm() {
@@ -26,7 +27,7 @@ export default function CTAContactForm() {
             </p>
 
             {/* Value Highlights */}
-            <div className="space-y-3">
+            <div className="space-y-3 mb-6">
               <div className="flex items-center gap-3 text-xs font-medium text-brand-charcoal">
                 <CheckCircle className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>Instant Floor Plan & Cost Sheet on WhatsApp</span>
@@ -40,6 +41,14 @@ export default function CTAContactForm() {
                 <span>Flexible Site Tour Timing with Relationship Executive</span>
               </div>
             </div>
+
+            <Link 
+              href="/contact"
+              className="inline-flex items-center gap-2 text-xs font-bold text-brand-orange uppercase tracking-widest hover:text-brand-terracotta transition-colors group"
+            >
+              <span>Visit Contact & Office Location Page</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
         </div>
 
