@@ -62,6 +62,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/projects" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
+                  <span>All Projects</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/ongoing-projects/codename-sanskruti" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
                   <span>Codename Sanskruti</span>
                   <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />
@@ -82,6 +88,12 @@ export default function Footer() {
               <li>
                 <Link href="/news" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
                   <span>News & Updates</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-brand-orange transition-colors flex items-center gap-1 group">
+                  <span>Contact Us</span>
                   <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-0.5 translate-x-0.5 group-hover:opacity-100 transition-all duration-300" />
                 </Link>
               </li>

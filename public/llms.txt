@@ -1,0 +1,23 @@
+# Codename Sanskruti by Motwani Construction
+
+> Codename Sanskruti is a premier temple-inspired luxury residential housing development by Motwani Construction located near Uttara Square, Bhubaneswar, Odisha.
+
+## Project Summary
+- Developer: Motwani Construction
+- Location: Siula, near Uttara Square, Beside NH 316, Bhubaneswar, Odisha
+- Configurations: 2 BHK, 3 BHK, and 4 BHK Luxury Apartments
+- RERA Registration: RP/26/2026/01587
+
+## Canonical Pages & Navigation
+
+- [Home](https://www.sanskruti.ind.in/): Primary project introduction, luxury amenities, and virtual tour.
+- [About Us](https://www.sanskruti.ind.in/about-us): Motwani Construction corporate overview, heritage, and architectural vision.
+- [Why Choose Us](https://www.sanskruti.ind.in/why-us): Construction quality standards, location advantage, and developer credentials.
+- [All Projects](https://www.sanskruti.ind.in/projects): Complete portfolio of residential developments in Bhubaneswar.
+- [Codename Sanskruti](https://www.sanskruti.ind.in/ongoing-projects/codename-sanskruti): Flagship luxury project page.
+- [Motwani Anandam](https://www.sanskruti.ind.in/ongoing-projects/motwani-anandam): Residential project opposite CET College, Near Ghatikia.
+- [Motwani Anantam](https://www.sanskruti.ind.in/ongoing-projects/motwani-anantam): Residential development at Kesora Square, Puri Bypass NH 316.
+- [News & Updates](https://www.sanskruti.ind.in/news): Media releases, project status updates, and announcement articles.
+- [Contact Us](https://www.sanskruti.ind.in/contact): Inquiries, office contacts, and site visit booking.
+- [Privacy Policy](https://www.sanskruti.ind.in/privacy-policy): Customer data privacy and compliance policies.
+- [Terms & Conditions](https://www.sanskruti.ind.in/terms-and-conditions): Legal disclaimers and terms of service.
