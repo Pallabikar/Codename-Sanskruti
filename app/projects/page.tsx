@@ -51,8 +51,8 @@ const PROJECTS_LIST = [
     location: 'Just opposite CET College, Near Ghatikia, Bhubaneswar',
     image: '/images/anandam-hero.jpg',
     href: '/ongoing-projects/motwani-anandam',
-    description: 'B+G+12 Storied high-rise community across 4 blocks with 165 units featuring premium 3 BHK + Puja luxury homes opposite CET College.',
-    specs: '3 BHK + Puja | B+G+12 | 165 Units',
+    description: 'B+G+12 Storied high-rise community across 4 blocks with 165 units featuring premium 3 BHK + Puja luxury homes opposite CET College. Anandam SBA: 2,180sq. ft. | Facing: East & North.',
+    specs: '3 BHK + Puja | SBA: 2,180sq. ft. | Facing: East & North',
   },
 ];
 

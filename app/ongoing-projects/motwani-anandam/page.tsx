@@ -18,8 +18,8 @@ export const metadata: Metadata = constructMetadata({
 const ANANDAM_CONFIGURATIONS = [
   { 
     type: '3 BHK + Puja Luxury Residence', 
-    area: '1,750 - 1,950 Sq.Ft.', 
-    facing: 'Vastu Compliant (East / North)', 
+    sba: '2,180sq. ft.', 
+    facing: 'East & North', 
     balcony: 'Spacious Balconies' 
   },
 ];
@@ -89,9 +89,9 @@ export default function MotwaniAnandamProject() {
           </div>
         </div>
 
-        {/* Project Highlights Grid */}
+        {/* About Project Section */}
         <h2 className="text-2xl font-serif text-brand-charcoal mb-6 border-b border-brand-terracotta/10 pb-2">
-          Project Highlights & Key Features
+          About Project
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
@@ -110,9 +110,13 @@ export default function MotwaniAnandamProject() {
               <Building2 className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-lg text-brand-charcoal mb-2">B + G + 12 Storied Towers</h3>
-            <p className="text-xs text-gray-500 leading-relaxed font-light">
+            <p className="text-xs text-gray-500 leading-relaxed font-light mb-4">
               Spread across <strong>4 Blocks</strong> featuring <strong>165 Exclusive Units</strong> designed with earthquake-resistant structural engineering.
             </p>
+            <div className="pt-3 border-t border-brand-terracotta/10 text-xs text-brand-charcoal font-medium space-y-1 bg-brand-cream/40 -mx-6 -mb-6 p-4 rounded-b-sm">
+              <p><strong>Anandam SBA:</strong> 2,180sq. ft.</p>
+              <p><strong>Facing:</strong> East & North</p>
+            </div>
           </div>
 
           <div className="bg-white p-6 border border-brand-terracotta/10 rounded-sm shadow-xs">
