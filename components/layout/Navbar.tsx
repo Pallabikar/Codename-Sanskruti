@@ -162,12 +162,12 @@ export default function Navbar() {
             </div>
 
             <Link
-              href="/news"
+              href="/updates"
               className={`relative text-xs tracking-widest font-bold uppercase transition-colors duration-300 py-2 drop-shadow-sm ${
-                pathname === '/news' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
+                pathname === '/updates' ? 'text-brand-orange' : isScrolled ? 'text-brand-charcoal hover:text-brand-orange' : 'text-white hover:text-brand-orange'
               }`}
             >
-              News
+              Updates
             </Link>
 
             <Link
@@ -280,12 +280,12 @@ export default function Navbar() {
               </div>
 
               <Link
-                href="/news"
+                href="/updates"
                 className={`block font-serif text-2xl tracking-widest uppercase transition-all duration-300 ${
-                  pathname === '/news' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
+                  pathname === '/updates' ? 'text-brand-orange pl-3 border-l-2 border-brand-orange' : 'text-brand-charcoal hover:text-brand-orange'
                 }`}
               >
-                News
+                Updates
               </Link>
 
               <Link
