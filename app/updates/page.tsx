@@ -15,8 +15,7 @@ import {
   Layers, 
   ShieldCheck, 
   ArrowRight,
-  Phone,
-  Calendar
+  Phone
 } from 'lucide-react';
 
 export const metadata: Metadata = constructMetadata({

@@ -9,16 +9,17 @@ import BackToTop from "@/components/ui/BackToTop";
 import FloatingWhatsAppButton from "@/components/ui/FloatingWhatsAppButton";
 import BackgroundMusicPlayer from "@/components/ui/BackgroundMusicPlayer";
 
+// Load Google Fonts using variable font config & display swap for optimum compatibility & performance
 const cinzel = Cinzel({
-  variable: "--font-cinzel",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-cinzel",
+  display: "swap",
 });
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = constructMetadata({ path: "/" });
@@ -37,6 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cinzel.variable} ${inter.variable}`}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
         <JsonLd />
       </head>
       <body className="antialiased bg-brand-cream text-brand-charcoal min-h-screen flex flex-col">
