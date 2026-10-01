@@ -1,9 +1,8 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.sanskruti.ind.in";
-  // Ensure canonical production domain is used instead of vercel.app preview URLs
-  const baseUrl = rawUrl.includes("vercel.app") ? "https://www.sanskruti.ind.in" : rawUrl;
+  const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://codename-sanskruti.onrender.com";
+  const baseUrl = rawUrl;
 
   const routes = [
     "",

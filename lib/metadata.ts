@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
-const BASE_URL = rawUrl.includes("vercel.app") ? "https://www.sanskruti.ind.in" : rawUrl;
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codename-sanskruti.onrender.com';
+const BASE_URL = rawUrl;
 
 const DEFAULT_METADATA = {
   title: 'Codename Sanskruti by Motwani Construction | Bhubaneswar',
@@ -68,7 +68,7 @@ export function constructMetadata({
       title: pageTitle,
       description: pageDesc,
       images: [ogImage],
-      creator: '@motwaniconstructions', // Example handle
+      creator: '@motwaniconstructions',
     },
     robots: {
       index: true,
