@@ -4,8 +4,8 @@ const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codename-sanskruti.o
 const BASE_URL = rawUrl;
 
 const DEFAULT_METADATA = {
-  title: 'Codename Sanskruti by Motwani Construction | Bhubaneswar',
-  description: 'Discover Codename Sanskruti by Motwani Construction in Bhubaneswar, offering premium 2, 3 & 4 BHK homes with thoughtfully designed spaces and modern lifestyle amenities.',
+  title: 'Codename Sanskruti | Motwani Construction | Call 97779 79501',
+  description: 'Codename Sanskruti by Motwani Construction, Bhubaneswar offers premium 2, 3 & 4 BHK homes with modern amenities. Call 97779 79501.',
   keywords: [
     'Kalinga architecture apartments Bhubaneswar',
     'temple-inspired residences Odisha',
