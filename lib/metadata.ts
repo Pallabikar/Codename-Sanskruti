@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codename-sanskruti.onrender.com';
+const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
 const BASE_URL = rawUrl;
 
 const DEFAULT_METADATA = {
