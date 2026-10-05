@@ -191,7 +191,7 @@ export default function Navbar() {
                    style={{ background: 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%)', backgroundSize: '200% 100%' }}
               />
               <Phone className="w-3.5 h-3.5" />
-              <span>Call Us Now</span>
+              <span>97779 79501</span>
             </Link>
 
             <button 
@@ -320,7 +320,7 @@ export default function Navbar() {
                 className="flex items-center justify-center gap-2 border border-brand-charcoal py-4 rounded-sm text-sm font-bold tracking-widest uppercase hover:bg-brand-charcoal hover:text-brand-cream transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call Us Now</span>
+                <span>97779 79501</span>
               </Link>
             </motion.div>
           </motion.div>
