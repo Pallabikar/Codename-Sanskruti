@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function JsonLd() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
+  const baseUrl = 'https://www.sanskruti.ind.in';
 
   const schema = {
     "@context": "https://schema.org",

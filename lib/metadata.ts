@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 
-const rawUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.sanskruti.ind.in';
-const BASE_URL = rawUrl;
+const BASE_URL = 'https://www.sanskruti.ind.in';
 
 const DEFAULT_METADATA = {
   title: 'Codename Sanskruti | Motwani Construction | Call 97779 79501',
