@@ -4,8 +4,8 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || request.nextUrl.hostname || '';
 
-  // Redirect any request made to *.vercel.app directly to the official domain www.sanskruti.ind.in
-  if (host.includes('vercel.app')) {
+  // Redirect any request made to *.onrender.com or *.vercel.app directly to official domain www.sanskruti.ind.in
+  if (host.includes('onrender.com') || host.includes('vercel.app')) {
     const targetUrl = new URL(request.nextUrl.pathname + request.nextUrl.search, 'https://www.sanskruti.ind.in');
     return NextResponse.redirect(targetUrl, { status: 301 });
   }
